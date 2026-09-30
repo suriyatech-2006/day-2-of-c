@@ -1,0 +1,37 @@
+Problem: First Non-Repeating Character
+
+Given a string, find the first character that occurs exactly once.
+
+Examples:
+- "swiss" -> "w"
+- "aabbcc" -> -1
+
+Requirements:
+- Uppercase and lowercase letters are treated as different characters.
+- Return -1 if no character appears exactly once.
+- Aim for O(n) time complexity.
+
+Expected concepts:
+- Frequency counting
+- HashMap / dictionary
+- String traversal
+
+Approach:
+First count the frequency of every character. Then traverse the string again and return the first character whose frequency is 1.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+Python Solution:
+
+def first_non_repeating_character(s):
+    frequency = {}
+
+    for ch in s:
+        frequency[ch] = frequency.get(ch, 0) + 1
+
+    for ch in s:
+        if frequency[ch] == 1:
+            return ch
+
+    return -1
